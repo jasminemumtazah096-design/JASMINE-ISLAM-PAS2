@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigasi JASMINE ISLAM dengan Image Logo</title>
+  <style>
+    /* Reset dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #AEC6CF;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header & Logo */
+    .top-header {
+      background-color: #638CB8;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* Wrapper untuk Logo Image dan Teks */
+    .brand-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    /* Ukuran gambar logo bisa diatur di sini */
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #000000;
+      line-height: 1.2;
+    }
+
+    .brand-tagline {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .btn-donasi {
+      background-color: #0d5c3e;
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn-donasi:hover {
+      background-color: #09422c;
+    }
+
+    /* Bar Navigasi Utama */
+    .navbar {
+      background-color: #94B9E0;
+      padding: 0 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: block;
+      color: #000000;
+      text-decoration: none;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .nav-link:hover {
+      background-color: #8A94ED;
+    }
+
+    /* Dropdown Menu (Kategori) */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      min-width: 210px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      list-style: none;
+      border-top: 3px solid #d4af37;
+    }
+
+    .nav-item:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px 16px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      border-bottom: 1px solid #000000;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: #f4f6f9;
+      color: #94B9E0;
+      padding-left: 20px;
+    }
+
+    /* Form Pencarian di Kanan Navigasi */
+    .search-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box input {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .search-box button {
+      padding: 6px 12px;
+      border: none;
+      background-color: #d4af37;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .search-box button:hover {
+      background-color: #b8962e;
+    }
+
+    /* Kontainer Konten & Penjelasan Rata Kiri-Kanan */
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .container h1 {
+      color: #5093A1;
+      margin-bottom: 15px;
+      font-size: 24px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    /* Pengaturan Rata Kiri-Kanan (Justify) */
+    .penjelasan-justify {
+      text-align: justify;
+      text-justify: inter-word;
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    /* Responsif untuk Layar Kecil / HP */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 5%;
+      }
+      .nav-menu {
+        flex-direction: column;
+      }
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-top: none;
+        background-color: #94B9E0;
+      }
+      .dropdown-menu li a {
+        color: #e0e0e0;
+        padding-left: 30px;
+        border-bottom: 1px solid #968D8D;
+      }
+      .search-box {
+        margin-top: 10px;
+      }
+      .search-box input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bagian Atas (Logo Image & Tombol Donasi) -->
+  <header class="top-header">
+    <a href="#" class="brand-wrapper">
+      <!-- Menggunakan tag <img> agar logo mudah diganti/diedit file aslinya -->
+      <img src="LOGO.png" alt="JASMINE ISLAM" class="brand-logo">
+
+      <!-- Teks Judul & Slogan -->
+      <div class="brand-text">
+        <span class="brand-title">JASMINE ISLAM</span>
+        <span class="brand-tagline">Memurnikan Aqidah Menebarkan Sunnah</span>
+      </div>
+    </a>
+
+    <a href="#donasi" class="btn-donasi">Donasi Dakwah</a>
+  </header>
+
+  <!-- Navigasi Utama -->
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="INDEX.HTML" class="nav-link">Beranda</a></li>
+      <li class="nav-item"><a href="keutamaan.HTML" class="nav-link">keutamaan sholat</a></li>
+      <li class="nav-item"><a href="sifat.HTML" class="nav-link">sifat sholat nabi</a></li>
+      <li class="nav-item"><a href="tata.HTML" class="nav-link">tata cara sholat</a></li>
+      <li class="nav-item"><a href="12.HTML" class="nav-link">12 doa iftitah</a></li>
+	  <li class="nav-item"><a href="dzikir.HTML" class="nav-link">Dzikir setelah sholat</a></li>
+    </ul>
+
+    <!-- Kotak Pencarian -->
+    <form class="search-box" action="#" method="GET">
+      <input type="text" placeholder="Cari artikel...">
+      <button type="submit">Cari</button>
+    </form>
+  </nav>
+
+  <!-- Area Konten dengan Penjelasan Rata Kiri-Kanan -->
+  <main class="container">
+    <h1>12 DOA IFTITAH</h1>
+   <center><img src="iftitah.png" width="500" height="300"></center>
+    <p class="penjelasan-justify">
+	<p><center>سُبْحَانَكَ اللَّهُمَّ وَبِحَمْدِكَ وَتَبَارَكَ اسْمُكَ وَتَعَالَى جَدُّكَ وَلاَ إِلَهَ غَيْرُكَ</p></center>
+	<p><center>artinya: Maha suci Engkau ya Allah, aku memuji-Mu, Maha berkah Nama-Mu. Maha tinggi kekayaan dan kebesaran-Mu, tidak ada sesembahan yang berhak diibadahi dengan benar selain Engkau).” (HR. Muslim, no. 399; Abu Daud, no. 775;Tirmidzi, no. 242; Ibnu Majah, no. 804</p></center>
+	<p><center>اللَّهُمَّ رَبَّ جِبْرَائِيلَ وَمِيكَائِيلَ وَإِسْرَافِيلَ فَاطِرَ السَّمَوَاتِ وَالأَرْضِ عَالِمَ الْغَيْبِ وَالشَّهَادَةِ أَنْتَ تَحْكُمُ بَيْنَ عِبَادِكَ فِيمَا كَانُوا فِيهِ يَخْتَلِفُونَ اِهْدِنِى لِمَا اخْتُلِفَ فِيهِ مِنَ الْحَقِّ بِإِذْنِكَ إِنَّكَ تَهْدِى مَنْ تَشَاءُ إِلَى صِرَاطٍ مُسْتَقِيمٍ</p></center>
+	<p><center>artinya: Ya Allah, Rabbnya Jibril, Mikail dan Israfil. Wahai Pencipta langit dan bumi. Wahai Rabb yang mengetahui yang ghaib dan nyata. Engkau yang menjatuhkan hukum untuk memutuskan apa yang mereka pertentangkan. Tunjukkanlah aku pada kebenaran apa yang dipertentangkan dengan seizin dari-Mu. Sesungguhnya Engkau menunjukkan pada jalan yang lurus bagi orang yang Engkau kehendaki).” (HR. Muslim, no. 770</p></center>
+	<p><center>للَّهُ أَكْبَرُ كَبِيرًا اللَّهُ أَكْبَرُ كَبِيرًا اللَّهُ أَكْبَرُ كَبِيرًا وَالْحَمْدُ لِلَّهِ كَثِيرًا وَالْحَمْدُ لِلَّهِ كَثِيرًا وَالْحَمْدُ لِلَّهِ كَثِيرًا وَسُبْحَانَ اللَّهِ بُكْرَةً وَأَصِيلاً وَسُبْحَانَ اللَّهِ بُكْرَةً وَأَصِيلاً وَسُبْحَانَ اللَّهِ بُكْرَةً وَأَصِيلاً أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ مِنْ نَفْخِهِ وَنَفْثِهِ وَهَمْزِهِ</p></center>
+	<p><center>artinya: Allah Maha Besar, Allah Maha Besar, Allah Maha Besar. Segala puji bagi Allah dengan pujian yang banyak, segala puji bagi Allah dengan pujian yang banyak, segala puji bagi Allah dengan pujian yang banyak. Maha Suci Allah di waktu pagi dan sore. Maha Suci Allah di waktu pagi dan sore. Maha Suci Allah di waktu pagi dan sore. Aku berlindung kepada Allah dari tiupan, bisikan, dan godaan setan).” (HR. Abu Daud, no. 764; Ibnu Majah, no. 807; Ahmad, 4:80,85. Syaikh Syu’aib Al-Arnauth dan ‘Abdul Qadir Al-Arnauth dalam tahqiq Zaad Al-Ma’ad, 1:197 mengatakan bahwa hadits ini dishahihkan oleh Ibnu Hibban, Al-Hakim dan disetujui oleh Imam Adz-Dzahabi</p></center>
+	<p><center>اللَّهُمَّ بَاعِدْ بَيْنِي وَبَيْنَ خَطَايَايَ كَمَا بَاعَدْتَ بَيْنَ الْمَشْرِقِ وَالْمَغْرِبِ اللَّهُمَّ نَقِّنِي مِنْ خَطَايَايَ كَمَا يُنَقَّى الثَّوْبُ الْأَبْيَضُ مِنْ الدَّنَسِ اللَّهُمَّ اغْسِلْنِي مِنْ خَطَايَايَ بِالْمَاءِ وَالثَّلْجِ وَالْبَرَدِ</p></center>
+	<p><center>artinya: Ya Allah, jauhkanlah antara aku dan kesalahan-kesalahanku, sebagaimana Engkau menjauhkan antara timur dan barat. Ya Allah, bersihkanlah aku dari kesalahan-kesalahanku sebagaimana baju putih dibersihkan dari kotoran. Ya Allah, cucilah aku dari kesalahan-kesalahanku dengan air, salju dan embun).” (HR. Bukhari,no. 744;Muslim,no. 598;An-Nasa’i,no. 896;teks haditsnyaadalah dari An-Nasa’i</P></center>
+    <p><strong>1.Permohonan dijauhkan dari dosa (Allahumma ba'id baini wa baina khathayaya...): </strong>Sering dibaca pada shalat wajib; berisi doa agar dijauhkan dari dosa sejauh timur dan barat serta dibersihkan dengan air, salju, dan embun.</p>
+    <p><strong>2.Menghadapkan wajah kepada Pencipta (Wajjahtu wajhiya lilladzi fatharas-samawati wal-ardh... Allahumma antal-maliku...):</strong Doa yang agak panjang untuk shalat wajib maupun sunnah, berisi pengakuan dosa dan permohonan akhlak mulia.</p>
+    <p><strong>3.Variasi Wajjahtu dengan penutup Subhanaka wa bihamdika:</strong> Diawali Allahu akbar, dilanjutkan menghadapkan diri secara lurus kepada Allah, dan ditutup pujian Allahumma antal-maliku... subhanaka wa bihamdika.</p>
+    <p><strong>4.Penyerahan ibadah dan permohonan amal terbaik (Inna shalati wa nusuki wa mahyaya wa mamati...):</strong> Berisi ikrar bahwa shalat, ibadah, hidup, dan mati hanya untuk Allah, serta memohon petunjuk menuju amal dan akhlak terbaik.</p>
+    <p><strong>5.Pujian dan penyucian singkat (Subhanakallahumma wa bihamdika wa tabarakasmuka...):</strong> Bacaan ringkas yang juga sering diamalkan sahabat Umar bin Al-Khattab radhiyallahu 'anhu; sangat cocok dibaca saat menjadi imam.</p>
+	<p><strong>6.Pujian singkat ditambah tahlil dan takbir 3 kali:</strong> Sama seperti bacaan ke-5, namun ditambahkan La ilaha illallah (3x) dan Allahu akbar kabira (3x).</p>
+	<p><strong>7.Pengagungan dan tasbih pagi-petang (Allahu akbar kabira walhamdulillahi katsira...):</strong> Pernah dibaca seorang sahabat hingga Nabi ﷺ mengabarkan bahwa pintu-pintu langit dibukakan karena kalimat tersebut.</p>
+	<p><strong>8.ujian yang banyak, baik, dan penuh berkah (Alhamdulillahi hamdan katsiran thayyiban mubarakan fihi):</strong> Bacaan seorang sahabat yang membuat dua belas malaikat berebut mencatat dan mengangkatnya ke langit.</p>
+    <p><strong>9.Pengakuan atas kekuasaan langit dan bumi (Allahumma lakal-hamdu anta nurus-samawati wal-ardh...):</strong> Umumnya dibaca saat shalat malam (tahajud), berisi pujian keagungan Allah dan permohonan ampunan atas segala dosa.</p>
+	<p><strong>10.Doa kepada Rabb Jibril, Mikail, dan Israfil (Allahumma rabba Jibra'ila wa Mika'ila wa Israfil...):</strong>Biasa dibaca pada shalat malam untuk memohon petunjuk menuju kebenaran dalam perkara yang diperselisihkan.</p>
+	<p><strong>11.Dzikir dan doa sepuluh kali: Membaca masing-masing 10 kali:</strong>Allahu akbar, Alhamdulillah, La ilaha illallah, Astaghfirullah, Allahummaghfirli wahdini warzuqni wa 'afini, dan Allahumma inni a'udzu bika minad-dhiqi yaumal-hisab.</p>
+	<p><strong>12.Takbir tiga kali dan pujian sifat keagungan (Allahu akbar [3x], dzul-malakuti wal-jabaruti wal-kibriya'i wal-'azhamah):</strong> Menetapkan sifat kekuasaan, keperkasaan, kebesaran, dan keagungan Allah.</p>
+
+	</p>
+
+    <p class="penjelasan-justify">
+    </p>
+  </main>
+
+</body>
+</html>

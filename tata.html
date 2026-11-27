@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigasi JASMINE ISLAM dengan Image Logo</title>
+  <style>
+    /* Reset dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #AEC6CF;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header & Logo */
+    .top-header {
+      background-color: #638CB8;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* Wrapper untuk Logo Image dan Teks */
+    .brand-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    /* Ukuran gambar logo bisa diatur di sini */
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #000000;
+      line-height: 1.2;
+    }
+
+    .brand-tagline {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .btn-donasi {
+      background-color: #0d5c3e;
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn-donasi:hover {
+      background-color: #09422c;
+    }
+
+    /* Bar Navigasi Utama */
+    .navbar {
+      background-color: #94B9E0;
+      padding: 0 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: block;
+      color: #000000;
+      text-decoration: none;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .nav-link:hover {
+      background-color: #8A94ED;
+    }
+
+    /* Dropdown Menu (Kategori) */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      min-width: 210px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      list-style: none;
+      border-top: 3px solid #d4af37;
+    }
+
+    .nav-item:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px 16px;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      border-bottom: 1px solid #000000;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: #f4f6f9;
+      color: #94B9E0;
+      padding-left: 20px;
+    }
+
+    /* Form Pencarian di Kanan Navigasi */
+    .search-box {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-box input {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .search-box button {
+      padding: 6px 12px;
+      border: none;
+      background-color: #d4af37;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .search-box button:hover {
+      background-color: #b8962e;
+    }
+
+    /* Kontainer Konten & Penjelasan Rata Kiri-Kanan */
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .container h1 {
+      color: #5093A1;
+      margin-bottom: 15px;
+      font-size: 24px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    /* Pengaturan Rata Kiri-Kanan (Justify) */
+    .penjelasan-justify {
+      text-align: justify;
+      text-justify: inter-word;
+      font-size: 15px;
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    /* Responsif untuk Layar Kecil / HP */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 5%;
+      }
+      .nav-menu {
+        flex-direction: column;
+      }
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-top: none;
+        background-color: #94B9E0;
+      }
+      .dropdown-menu li a {
+        color: #e0e0e0;
+        padding-left: 30px;
+        border-bottom: 1px solid #968D8D;
+      }
+      .search-box {
+        margin-top: 10px;
+      }
+      .search-box input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bagian Atas (Logo Image & Tombol Donasi) -->
+  <header class="top-header">
+    <a href="#" class="brand-wrapper">
+      <!-- Menggunakan tag <img> agar logo mudah diganti/diedit file aslinya -->
+      <img src="LOGO.png" alt="JASMINE ISLAM" class="brand-logo">
+
+      <!-- Teks Judul & Slogan -->
+      <div class="brand-text">
+        <span class="brand-title">JASMINE ISLAM</span>
+        <span class="brand-tagline">Memurnikan Aqidah Menebarkan Sunnah</span>
+      </div>
+    </a>
+
+    <a href="#donasi" class="btn-donasi">Donasi Dakwah</a>
+  </header>
+
+  <!-- Navigasi Utama -->
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="INDEX.HTML" class="nav-link">Beranda</a></li>
+      <li class="nav-item"><a href="keutamaan.HTML" class="nav-link">keutamaan sholat</a></li>
+      <li class="nav-item"><a href="sifat.HTML" class="nav-link">sifat sholat nabi</a></li>
+      <li class="nav-item"><a href="tata.HTML" class="nav-link">tata cara sholat</a></li>
+      <li class="nav-item"><a href="12.HTML" class="nav-link">12 doa iftitah</a></li>
+	  <li class="nav-item"><a href="dzikir.HTML" class="nav-link">Dzikir setelah sholat</a></li>
+    </ul>
+
+    <!-- Kotak Pencarian -->
+    <form class="search-box" action="#" method="GET">
+      <input type="text" placeholder="Cari artikel...">
+      <button type="submit">Cari</button>
+    </form>
+  </nav>
+
+  <!-- Area Konten dengan Penjelasan Rata Kiri-Kanan -->
+  <main class="container">
+    <h1>TATA CARA SHOLAT</h1>
+   <center><img src="tata cara.png" width="500" height="300"></center>
+    <p class="penjelasan-justify">
+   <p><center><strong>Persiapan dan Pembukaan </p></center></strong>
+   <p>1.Menghadap kiblat dan disunnahkan menghadap sutrah (pembatas di depan tempat shalat). </p>  
+   <p>2. Berniat di dalam hati sesuai shalat yang dikerjakan tanpa dilafazhkan.</p>
+   <p>3.Takbiratul ihram dengan mengangkat tangan sejajar pundak atau telinga sambil mengucapkan "Allahu Akbar".</p>
+   <p>4.Bersedekap dengan meletakkan tangan kanan di atas tangan kiri, sementara pandangan mengarah ke tempat sujud.</p>
+   <p>5.Membaca doa iftitah, ta'awwudz, lalu membaca surah Al-Fatihah dan surah/ayat Al-Qur'an.</p>
+  <p><center><strong>Gerakan Inti dan Thuma'ninah</p></center></strong>
+   <p>1.Rukuk: Membungkuk dengan punggung rata dan kepala sejajar punggung, disertai thuma'ninah (tenang/tidak tergesa-gesa) dan bacaan tasbih.</p>
+   <p>2.I'tidal: Bangkit berdiri tegak kembali dari rukuk disertai thuma'ninah serta bacaan sami'allahu liman hamidah dan rabbanaa lakal hamdu.</p>
+   <p>3.Sujud dua kali tiap rakaat dengan thuma'ninah dan bacaan tasbih. Hindari menempelkan lengan bawah ke lantai dan hindari duduk 'uqbah syaithan.</p>
+   <p>4.Duduk di antara dua sujud dengan thuma'ninah (umumnya duduk iftirasy) dan membaca doa permohonan ampun (rabbigh-fir lii).</p>
+   <p><center><strong>Tasyahud dan Penutup</p></center></strong>
+   <p>1.Duduk tasyahud awal (pada shalat lebih dari dua rakaat) dan tasyahud akhir (pada rakaat terakhir, umumnya dengan duduk tawarruk).</p>
+   <p>2.Membaca tasyahud dan shalawat kepada Nabi pada tasyahud akhir.</p>
+   <p>3.Salam ke kanan dan ke kiri untuk mengakhiri shalat.</p>
+   <p><center><strong>Rukun vs. Wajib Shalat</p></center></strong>
+   <p>1.Rukun shalat (seperti niat, takbiratul ihram, berdiri bagi yang mampu, Al-Fatihah, rukuk, i'tidal, sujud, duduk antara dua sujud, tasyahud akhir, shalawat, salam, tertib, dan thuma'ninah) tidak gugur dan tidak bisa diganti sujud sahwi.</p>
+   <p>2.Wajib shalat (seperti tasyahud awal, takbir selain takbiratul ihram, dan bacaan wajib sekali pada gerakan tertentu) gugur jika lupa atau tidak tahu, dan ditutup dengan sujud sahwi.</p>
+    </p>
+    <p class="penjelasan-justify">
+    </p>
+  </main>
+
+</body>
+</html>
